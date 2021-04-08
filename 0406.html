@@ -1,0 +1,53 @@
+<script>
+    //공간5개
+    var nums0 = new Array(5);
+    console.log(nums0);
+    
+    //5랑 10넣기(공간2개)
+    var nums1 = new Array(5,10);
+    console.log(nums1);
+    
+    //배열안에 배열넣기
+    var nums2 = new Array(5,10, "hello", new Array(2,3,4));
+    console.log(nums2);
+    console.log(nums2[3][1]);
+    console.log(typeof nums2[2]);
+
+    //데이터를 저장하는 구조: 자료구조
+    var q = new Array();
+    q.push(2);
+    console.log(q);
+    q.push(5)
+    console.log(q);
+    q.push(1);
+    console.log(q);
+    //맨앞에 넣기
+    q.unshift(10);
+    console.log(q);
+
+    //[----->] 선형: 버퍼로 사용하는 선형: 큐
+    //FIFO 선입선출 
+    //-->[1 5 2]-->
+    console.log(q.shift()); //10
+    // console.log(q);
+    console.log(q.shift()); //2
+    // console.log(q);
+    console.log(q.shift()); //5
+    // console.log(q);
+    console.log(q.shift()); //1
+
+    //stack [ 1 ] ^
+    //      [ 5 ] |
+    //      [ 2 ] |
+    //LIFO 후입선출
+    q.push(2);
+    console.log(q);
+    q.push(5)
+    console.log(q);
+    q.push(1);
+    console.log(q);
+
+    console.log(q.pop()); //1
+    console.log(q.pop()); //5
+    console.log(q.pop()); //2
+</script>
