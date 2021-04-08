@@ -1,0 +1,84 @@
+<script>
+//JSON활용
+    
+    객체생성
+    var exam={
+        kor:30,
+        eng:40,
+        math:50
+    };
+
+    //배열생성
+    var examlist=[exam1, exam2, exam3];
+
+    //배열에 객체넣기
+    var exams=[
+        {kor:30,eng:40,math:50},
+        {kor:31,eng:41,math:51},
+        {kor:32,eng:42,math:52}
+    ];
+
+    console.log(exams[1].eng); //41
+
+    //Json 문자열을 자바스크립트 객체로 변경하기
+    var x;
+    //eval();
+    eval("x=3;");
+    console.log(x);
+    
+    //eval쓸땐 완전한 문장으로 만들어줘야함
+    var json = "[2,3,4,5]";
+    var data = eval("("+json+")");
+    console.log(data[2]); //4
+
+    var json1 = "([2,3,4,5])";
+    var data1 = eval(json1);
+    console.log(data1[2]); //4
+
+    var json2 = "{kor:29}";
+    var data2 = eval("("+json2+")");
+    console.log(data2.kor); //29
+
+    var json3 = "({kor:29})";
+    var data3 = eval(json3);
+    console.log(data3.kor); //29
+
+    //JSON.parse로 변환해서 사용
+    var json4 = '{"kor":29}'; //kor을 ""로 감싸고 써야함
+    var data4 = JSON.parse(json4);
+    console.log(data4.kor); //29
+
+    //연산자
+    var x = "hello";
+    var y = new String("hello");
+
+    console.log(x == y); //T //값을 비교 .equals()
+    console.log(x === y); //F //참조를 비교 ==
+
+    //제어문
+    var ar = [2,3,4]
+    for(var i=0; i<ar.length; i++)
+        console.log(ar[i]); //2,3,4
+
+    for(var i in ar)
+        console.log(ar[i]); //2,3,4
+
+
+    var obj = {kor:10, eng:20, math:30};
+
+    for(var k in obj) //k에 키"kor", "eng", "math"가 뽑아짐
+        console.log(obj[k]); //10, 20, 30 출력
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
