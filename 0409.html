@@ -1,0 +1,18 @@
+<script>
+    //var선언 변수는 정적인 방식
+    console.log(a); //변수선언은 인식함(초기화 인식x)
+    var a = 1;
+    console.log(a);
+
+    //global변수는 동적인 방식
+    var x = 1; //지역변수
+    a = 1; //전역변수(window가 생략돼있는 것)
+    console.log(a);
+    console.log(window.a); //2개 동일
+
+    //이렇게 해도 지역화 안됨 -> 함수로 만들어야함
+    {
+        var a = 1;
+    }
+    console.log(a);
+</script>
