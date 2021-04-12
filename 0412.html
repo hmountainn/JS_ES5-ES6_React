@@ -1,30 +1,42 @@
 <script>
-//함수
-    //함수선언(1)
-    var add = new Function("x,y", "return x+y");
-    var result = add(3,4)
-    console.log(result);
+// //함수
+//     //함수선언(1)
+//     var add = new Function("x,y", "return x+y");
+//     var result = add(3,4)
+//     console.log(result);
 
-    //함수선언(2)
-    var add2 = function(x,y){
-        return x+y;
-    };
-    var result2 = add2(4,4)
-    console.log(result2);
+//     //함수선언(2)
+//     var add2 = function(x,y){
+//         return x+y;
+//     };
+//     var result2 = add2(4,4)
+//     console.log(result2);
 
-    //함수선언(3)
-    var result3 = add3(5,4) //함수 먼저 활용 가능
-    function add3(x,y){
-        return x+y;
-    };
-    console.log(result3);
+//     //함수선언(3)
+//     var result3 = add3(5,4) //함수 먼저 활용 가능
+//     function add3(x,y){
+//         return x+y;
+//     };
+//     console.log(result3);
 
-    //지역변수
+    //변수의 생명주기
     function f1(){
-        // var x = 1; //지역변수
-        x = 1;
-        return x;
+        var x = 1; //지역변수
+        return ++x;
     }
-    f1();
-    console.log(x);
+    var f = f1();
+    console.log(f); //2
+    console.log(f); //2
+    console.log(f); //2
+
+    function f2(){
+        var x2 = 1;
+        return function(){
+            return ++x2;
+        }
+    }
+    var f2 = f2();
+    console.log(f2()); //2
+    console.log(f2()); //3
+    console.log(f2()); //4
 </script>
