@@ -5,19 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script>
+        //함수로 만듦
+        function onPrompt(){
+            var x = prompt('x:');
+            var y = prompt('y:');
+            x = parseInt(x);
+            y = parseInt(y);
+            alert(x+y);
+        }
+    </script>
 </head>
 <body>
     <!-- onclick 적용 -->
     <!-- <h1 id="title" onclick="console.log('클릭')">고객센터</h1> -->
-    <h1 id="title" onclick=
-    "
-    var x = prompt('x:');
-    var y = prompt('y:');
-    x = parseInt(x);
-    y = parseInt(y);
-    alert(x+y);
-    ">
-    고객센터</h1>
+    <h1 id="title" onclick="onPrompt()">고객센터</h1>
     
     <script>
         //html에 끼워넣기
