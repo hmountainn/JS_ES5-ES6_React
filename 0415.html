@@ -6,18 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        //밑에 따로 안넣고 여기 모아놓기
-        function onPrompt(){
-            var x = prompt('x:');
-            var y = prompt('y:');
-            x = parseInt(x);
-            y = parseInt(y);
-            title.innerText = x+y;
-        }
-
-        //윈도우 로드하고 onclick발동
+        //윈도우 로드하고 onclick발동 한번에 모으기
         window.onload = function(){
-            title.onclick = onPrompt;
+            title.onclick = function onPrompt(){
+                var x = prompt('x:');
+                var y = prompt('y:');
+                x = parseInt(x);
+                y = parseInt(y);
+                title.innerText = x+y;
+            }  
         }
     </script>
 </head>
