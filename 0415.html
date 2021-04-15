@@ -15,16 +15,13 @@
             title.innerText = x+y;
         }
 
-        //onclick으로 onPrompt동작
-        function init(){
+        //윈도우 로드하고 onclick발동
+        window.onload = function(){
             title.onclick = onPrompt;
         }
-        //윈도우 로드될때 init 실행
-        window.onload = init;
     </script>
 </head>
 <body>
-    <!-- onclick 없애고 script 블록으로 몰아넣기 -->
     <h1 id="title">고객센터</h1>
 
     <script>
