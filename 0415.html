@@ -5,13 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-</head>
-<body>
-    <!-- onclick 없애고 script 블록으로 몰아넣기 -->
-    <h1 id="title">고객센터</h1>
-    <!-- 흩어진 스크립트 코드 쓰는곳 아래로 다 모음 -->
     <script>
+        //밑에 따로 안넣고 여기 모아놓기
         function onPrompt(){
             var x = prompt('x:');
             var y = prompt('y:');
@@ -19,9 +14,19 @@
             y = parseInt(y);
             title.innerText = x+y;
         }
-        title.onclick = onPrompt;
+
+        //onclick으로 onPrompt동작
+        function init(){
+            title.onclick = onPrompt;
+        }
+        //윈도우 로드될때 init 실행
+        window.onload = init;
     </script>
-    
+</head>
+<body>
+    <!-- onclick 없애고 script 블록으로 몰아넣기 -->
+    <h1 id="title">고객센터</h1>
+
     <script>
         //html에 끼워넣기
         var html = "<span>안녕하셈</span>";
