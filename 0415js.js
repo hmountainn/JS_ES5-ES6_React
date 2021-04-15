@@ -8,6 +8,6 @@ window.onload = function(){
         var y = prompt('y:');
         x = parseInt(x);
         y = parseInt(y);
-        title.innerText = x+y;
+        asideTitle.innerText = x+y;
     }  
 }
