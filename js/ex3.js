@@ -6,12 +6,12 @@ window.addEventListener("load", function(){
     var button = section.querySelector(".btn");
 
     button.onclick = function(){
-        // window.setTimeout(로직, 시간(3000:3초))
-        //3초후에 실행
-        window.setTimeout(function(){
+        // window.setInterval(로직, 시간(3000:3초))
+        // 1초마다 실행
+        window.setInterval(function(){
         var num = parseInt(span.innerText);
         num--;
         span.innerText = num;
-        }, 3000);
+        }, 1000);
     }
 });
