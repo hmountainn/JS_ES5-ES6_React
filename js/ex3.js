@@ -6,6 +6,9 @@ window.addEventListener("load", function(){
     var button = section.querySelector(".btn");
 
     button.onclick = function(){
-        console.log("test")
+        //누를때마다 1씩 줄어들기
+        var num = parseInt(span.innerText);
+        num--;
+        span.innerText = num;
     }
 });
