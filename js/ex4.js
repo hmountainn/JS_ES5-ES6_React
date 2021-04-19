@@ -6,12 +6,11 @@ window.addEventListener("load", function(){
 
     button.onclick = function(){    
         //버튼 누르면 계속 튀어나오기
-        // window.setInterval(로직, 시간(3000:3초))
         var left = 0;
         var time = window.setInterval(function(){
             left++;
             boxes[0].style.left = left+"px";
-            if(left == 400){
+            if(left == 400){ //박스 끝에서 멈추기
                 clearInterval(time);
             }
         }, 17);
