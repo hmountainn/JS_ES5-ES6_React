@@ -7,21 +7,16 @@ window.addEventListener("load", function(){
     button.onclick = function(){
         
         var box = boxes[0];
-        //css 스타일을 들고오기(box1)
-        let boxStyle = window.getComputedStyle(box);
-        var left = boxStyle.getPropertyValue("left");
+        let boxStyle = window.getComputedStyle(box); //css 스타일을 들고오기(box1)
+        
+        var left = parseInt(boxStyle.getPropertyValue("left")); //'70px' -> 70 으로 변경
 
-        console.log(left);
-
-
-        // //버튼 누르면 계속 튀어나오기
-        // var left = 0;
-        // var time = window.setInterval(function(){
-        //     left++;
-        //     boxes[0].style.left = left+"px";
-        //     if(left == 400){ //박스 끝에서 멈추기
-        //         clearInterval(time);
-        //     }
-        // }, 17);
+        var time = window.setInterval(function(){
+            left++;
+            boxes[0].style.left = left+"px";
+            if(left == 400){ //박스 끝에서 멈추기
+                clearInterval(time);
+            }
+        }, 17);
     }
 });
