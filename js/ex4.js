@@ -7,10 +7,10 @@ window.addEventListener("load", function(){
     button.onclick = function(){    
         //버튼 누르면 계속 튀어나오기
         // window.setInterval(로직, 시간(3000:3초))
-        var num = 0;
+        var left = 0;
         window.setInterval(function(){
-            num = num+1;
-            boxes[0].style.left = num+"px";
+            left++;
+            boxes[0].style.left = left+"px";
         }, 17);
     }
 });
