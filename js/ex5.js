@@ -17,12 +17,19 @@ window.addEventListener("load", function(){
 
         //1. 엘리먼트 객체를 생성하기
         var div = document.createElement("div");
+        var txt = document.createTextNode("하위"); //텍스트 추가
         
         //2. 엘리먼트 객체의 속성 설정하기
         div.style.backgroundColor = "blue";
         div.style.width = "100px";
         div.style.height = "100px";
         div.style.borderRadius = "50px";
+        //텍스트 스타일 설정
+        div.style.textAlign = "center";
+        div.style.color = "#fff";
+        div.style.lineHeight = "100px";
+
+        div.appendChild(txt); //div안에 텍스트 넣기
 
         //3. 엘리먼트 객체를 문서에 추가하기
         container.appendChild(div);
