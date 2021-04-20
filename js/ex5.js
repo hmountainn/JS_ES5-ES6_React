@@ -37,8 +37,10 @@ window.addEventListener("load", function(){
         container.append(div); //append활용
     }
 
+    //노드삭제
     btnDel.onclick = function(){
-        console.log("del")
+        var div  = container.querySelector("div:first-child");
+        container.removeChild(div);
     }
     
     btnClone.onclick = function(){
