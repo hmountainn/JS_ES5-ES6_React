@@ -17,7 +17,7 @@ window.addEventListener("load", function(){
 
         //1. 엘리먼트 객체를 생성하기
         var div = document.createElement("div");
-        var txt = document.createTextNode("하위"); //텍스트 추가
+        // var txt = document.createTextNode("하위"); //텍스트 추가
         
         //2. 엘리먼트 객체의 속성 설정하기
         div.style.backgroundColor = "blue";
@@ -29,10 +29,12 @@ window.addEventListener("load", function(){
         div.style.color = "#fff";
         div.style.lineHeight = "100px";
 
-        div.appendChild(txt); //div안에 텍스트 넣기
+        // div.appendChild(txt); //div안에 텍스트 넣기
+        div.append("2"); //append활용
 
         //3. 엘리먼트 객체를 문서에 추가하기
-        container.appendChild(div);
+        // container.appendChild(div);
+        container.append(div); //append활용
     }
 
     btnDel.onclick = function(){
