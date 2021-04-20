@@ -5,6 +5,7 @@ window.addEventListener("load", function(){
     var btnAdd = section.querySelector(".btn-add");
     var btnDel = section.querySelector(".btn-del");
     var btnClone = section.querySelector(".btn-clone");
+    var btnChange = section.querySelector(".btn-change");
     
     var idInput = section.querySelector(".id-input");
     var colorInput = section.querySelector(".color-input");
@@ -52,5 +53,9 @@ window.addEventListener("load", function(){
         var div = container.querySelector("div:first-child");
         var clone = div.cloneNode(true); //true없으면 자식은 빼고 복제됨
         container.append(clone);
+    }
+
+    btnChange.onclick = function(){
+        console.log("gd");
     }
 });
