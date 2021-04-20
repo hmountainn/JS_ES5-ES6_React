@@ -44,7 +44,10 @@ window.addEventListener("load", function(){
         div.remove(); //removeChild대체
     }
     
+    //노드복제
     btnClone.onclick = function(){
-        console.log("clone")
+        var div = container.querySelector("div:first-child");
+        var clone = div.cloneNode(true); //ture없으면 자식은 빼고 복제됨
+        container.append(clone);
     }
 });
