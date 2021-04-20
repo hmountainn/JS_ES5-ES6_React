@@ -47,7 +47,7 @@ window.addEventListener("load", function(){
     //노드복제
     btnClone.onclick = function(){
         var div = container.querySelector("div:first-child");
-        var clone = div.cloneNode(true); //ture없으면 자식은 빼고 복제됨
+        var clone = div.cloneNode(true); //true없으면 자식은 빼고 복제됨
         container.append(clone);
     }
 });
