@@ -40,7 +40,8 @@ window.addEventListener("load", function(){
     //노드삭제
     btnDel.onclick = function(){
         var div  = container.querySelector("div:first-child");
-        container.removeChild(div);
+        // container.removeChild(div);
+        div.remove(); //removeChild대체
     }
     
     btnClone.onclick = function(){
