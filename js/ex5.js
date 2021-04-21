@@ -64,6 +64,7 @@ window.addEventListener("load", function(){
         //Replace
         var old = container.replaceChild(e1,e2);
         //insertBefore
-        container.insertBefore(old,e1);
+        // container.insertBefore(old,e1); //old
+        e1.insertAdjacentElement('beforebegin',old);
     }   
 });
