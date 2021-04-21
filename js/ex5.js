@@ -55,7 +55,15 @@ window.addEventListener("load", function(){
         container.append(clone);
     }
 
+    //노드 바꾸기
     btnChange.onclick = function(){
-        console.log("gd");
-    }
+        var e1 = container.querySelector("div:first-child"); //첫번째
+        var e2 = container.querySelector("div:nth-child(2)"); //두번째
+
+        //Detach
+        //Replace
+        var old = container.replaceChild(e1,e2);
+        //insertBefore
+        container.insertBefore(old,e1);
+    }   
 });
