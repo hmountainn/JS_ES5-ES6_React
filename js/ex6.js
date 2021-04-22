@@ -21,8 +21,11 @@ window.addEventListener("load", function(){
     container.onclick = function(e){
         if(e.target.className != "box") //box아닌건 그냥 넘어가
             return;
+        
+        if(selected != null) //다른거선택했을때 이미선택돼있는거 지우기
+            selected.classList.remove("selected");
 
-        selected = e.target;
+        selected = e.target;    
         selected.classList.add("selected");
     }
 
