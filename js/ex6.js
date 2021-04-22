@@ -22,8 +22,8 @@ window.addEventListener("load", function(){
         if(e.target.className != "box") //box아닌건 그냥 넘어가
             return;
 
-        console.log(e.target);
         selected = e.target;
+        selected.classList.add("selected");
     }
 
     //selected 삭제
