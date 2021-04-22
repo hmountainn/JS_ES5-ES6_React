@@ -22,8 +22,8 @@ window.addEventListener("load", function(){
         if(!e.target.classList.contains("box")) //box가 포함이 안됐다면
             return;
         
-        // if(selected != null) //다른거선택했을때 이미선택돼있는거 지우기
-        //     selected.classList.remove("selected");
+        if(selected != null && selected != e.target) //다른거선택했을때 이미선택돼있는거 지우기
+            selected.classList.remove("selected");
 
         selected = e.target;
         selected.classList.toggle("selected");
