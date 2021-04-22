@@ -19,14 +19,19 @@ window.addEventListener("load", function(){
 
     //이벤트 버블링과 event.target속성사용
     container.onclick = function(e){
-        if(e.target.className != "box") //box아닌건 그냥 넘어가
+        if(!e.target.classList.contains("box")) //box가 포함이 안됐다면
             return;
         
-        if(selected != null) //다른거선택했을때 이미선택돼있는거 지우기
-            selected.classList.remove("selected");
+        // if(selected != null) //다른거선택했을때 이미선택돼있는거 지우기
+        //     selected.classList.remove("selected");
 
-        selected = e.target;    
-        selected.classList.add("selected");
+        selected = e.target;
+        selected.classList.toggle("selected");
+
+        // if(selected.classList.contains("selected"))
+        //     selected.classList.remove("selected");
+        // else
+        //     selected.classList.add("selected");
     }
 
     //selected 삭제
