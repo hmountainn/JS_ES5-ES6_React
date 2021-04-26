@@ -3,7 +3,12 @@ window.addEventListener("load",function(){
 
     var accordion = section.querySelector(".accordion");
     accordion.onclick = function(e){
-        console.log("t");
+        //1. title이 아니면 return
+        if(!e.target.classList.contains("title")){
+            return;
+        }
+        //2. target의 동생의 d-none을 제거
+        e.target.nextElementSibling.classList.remove("d-none");
     }
 
 });
