@@ -7,8 +7,8 @@ window.addEventListener("load",function(){
         if(!e.target.classList.contains("title")){
             return;
         }
-        //2. target의 동생의 d-none을 제거
-        e.target.nextElementSibling.classList.remove("d-none");
+        //2. target의 동생의 d-none을 제거하고 다시 추가
+        e.target.nextElementSibling.classList.toggle("d-none");
     }
 
 });
