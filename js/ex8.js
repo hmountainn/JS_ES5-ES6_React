@@ -18,7 +18,7 @@ window.addEventListener("load",function(){
             input.value = parseInt(input.value)-1;
         }
         else if(target.classList.contains("current")){
-            target.parentElement.style.border = "2px dotted #000";
+            target.parentElement.classList.toggle("current")
         }
     }
 });
