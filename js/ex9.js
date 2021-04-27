@@ -7,7 +7,6 @@ window.addEventListener("load",function(){
 
     //darg이벤트
     uploadBox.ondragenter = function(e){
-        e.preventDefault();
         console.log("enter");
     }
 
@@ -17,7 +16,6 @@ window.addEventListener("load",function(){
     }
 
     uploadBox.ondragleave = function(e){
-        e.preventDefault();
         console.log("leave");
     }
 
