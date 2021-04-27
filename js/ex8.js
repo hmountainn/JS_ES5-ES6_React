@@ -3,21 +3,21 @@ window.addEventListener("load",function(){
 
     var product = section.querySelector(".product");
     product.onclick = function(e){
-        var item = e.target;
-        if(!item.classList.contains("up") &&
-        !item.classList.contains("down") &&
-        !item.classList.contains("current"))
+        var target = e.target;
+        if(!target.classList.contains("up") &&
+        !target.classList.contains("down") &&
+        !target.classList.contains("current"))
             return;
 
-        if(item.classList.contains("up")){
+        if(target.classList.contains("up")){
             var input = item.parentElement.querySelector("input");
             input.value = parseInt(input.value)+1;
         }
-        else if(item.classList.contains("down")){
+        else if(target.classList.contains("down")){
             var input = item.parentElement.querySelector("input");
             input.value = parseInt(input.value)-1;
         }
-        else if(item.classList.contains("current")){
+        else if(target.classList.contains("current")){
             item.parentElement.style.border = "2px dotted #000";
         }
     }
