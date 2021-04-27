@@ -6,12 +6,25 @@ window.addEventListener("load",function(){
     var fileButton = section.querySelector(".btn-file");
 
     //darg이벤트
-    uploadBox.ondragenter = function(){
+    uploadBox.ondragenter = function(e){
+        e.preventDefault();
         console.log("enter");
     }
 
-    uploadBox.ondragleave = function(){
+    uploadBox.ondragover = function(e){
+        e.preventDefault();
+        console.log("over");
+    }
+
+    uploadBox.ondragleave = function(e){
+        e.preventDefault();
         console.log("leave");
+    }
+
+    //drop이벤트
+    uploadBox.ondrop = function(e){
+        e.preventDefault();
+        console.log("drop");
     }
 
     //가짜버튼 누르면 진짜업로드버튼 실행
