@@ -5,7 +5,7 @@ window.addEventListener("load",function(){
     var fileButton = section.querySelector(".btn-file");
 
     selButton.onclick = function(e){
-        var event = new MoutseEvent("click",{
+        var event = new MouseEvent("click",{
             'view' : window,
             'bubbles': true,
             'cancelable':true
