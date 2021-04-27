@@ -10,15 +10,15 @@ window.addEventListener("load",function(){
             return;
 
         if(target.classList.contains("up")){
-            var input = item.parentElement.querySelector("input");
+            var input = target.parentElement.querySelector("input");
             input.value = parseInt(input.value)+1;
         }
         else if(target.classList.contains("down")){
-            var input = item.parentElement.querySelector("input");
+            var input = target.parentElement.querySelector("input");
             input.value = parseInt(input.value)-1;
         }
         else if(target.classList.contains("current")){
-            item.parentElement.style.border = "2px dotted #000";
+            target.parentElement.style.border = "2px dotted #000";
         }
     }
 });
