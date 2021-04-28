@@ -31,6 +31,8 @@ window.addEventListener("load",function(){
     uploadBox.ondrop = function(e){
         uploadBox.style.backgroundColor = "white"
         e.preventDefault();
+
+        console.log(e.dataTransfer.files[0].size);
     }
 
     //가짜버튼 누르면 진짜업로드버튼 실행
