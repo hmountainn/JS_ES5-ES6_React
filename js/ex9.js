@@ -35,6 +35,11 @@ window.addEventListener("load",function(){
         console.log(e.dataTransfer.files[0].size);
     }
 
+    //파일업로드 버튼통해 업로드해서 파일정보 들고오기
+    fileButton.oninput = function(e){
+        console.log(fileButton.files[0]);
+    }
+
     //가짜버튼 누르면 진짜업로드버튼 실행
     selButton.onclick = function(e){
         var event = new MouseEvent("click",{
