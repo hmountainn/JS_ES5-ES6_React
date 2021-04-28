@@ -12,7 +12,14 @@ window.addEventListener("load",function(){
 
     uploadBox.ondragover = function(e){
         e.preventDefault();
-        uploadBox.style.backgroundColor = "green";
+
+        //drag한것 file인지 여부
+        var valid = e.dataTransfer.types.indexOf("Files") >= 0;
+
+        if(!valid) //파일이 아니면
+            uploadBox.style.backgroundColor = "red";
+        else //파일이면
+            uploadBox.style.backgroundColor = "green";
     }
 
     uploadBox.ondragleave = function(e){
@@ -24,7 +31,6 @@ window.addEventListener("load",function(){
     uploadBox.ondrop = function(e){
         uploadBox.style.backgroundColor = "white"
         e.preventDefault();
-        console.log("drop");
     }
 
     //가짜버튼 누르면 진짜업로드버튼 실행
