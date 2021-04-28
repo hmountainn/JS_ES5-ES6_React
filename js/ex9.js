@@ -12,15 +12,17 @@ window.addEventListener("load",function(){
 
     uploadBox.ondragover = function(e){
         e.preventDefault();
-        console.log("over");
+        uploadBox.style.backgroundColor = "green";
     }
 
     uploadBox.ondragleave = function(e){
+        uploadBox.style.backgroundColor = "white"
         console.log("leave");
     }
 
     //drop이벤트
     uploadBox.ondrop = function(e){
+        uploadBox.style.backgroundColor = "white"
         e.preventDefault();
         console.log("drop");
     }
