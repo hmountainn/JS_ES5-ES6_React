@@ -1,4 +1,5 @@
 // Collection
+//set
 let set = new Set();
 set.add(5);
 set.add(5);
@@ -13,3 +14,6 @@ console.log(arr.length);
 
 let lotto = new Set(arr);
 console.log(lotto.size);
+
+if(lotto.has(8))
+    console.log("8가지고 있다")
