@@ -16,14 +16,14 @@
 // print(10);
 
 //arrow function
-let arr = [2,3,4,12,23,4,2,1,3,4,90];
-arr.sort(function(a,b){
-    return a - b
-});
-console.log(arr);
+// let arr = [2,3,4,12,23,4,2,1,3,4,90];
+// arr.sort(function(a,b){
+//     return a - b
+// });
+// console.log(arr);
 
-arr.sort((a,b)=>a-b);
-console.log(arr);
+// arr.sort((a,b)=>a-b);
+// console.log(arr);
 
 
 //------------------------------------
@@ -97,3 +97,29 @@ console.log(arr);
 // //for-of이용해 key, value 모두 꺼내기
 // for(let [k,v] of exam.entries())
 //     console.log(`key:${k}, value:${v}`);
+
+//------Javascript Object Oriented Programming -------
+//행위 또는 처리하는 함수
+function print(){
+    console.log(this); // this: window객체
+}
+
+print()
+
+//데이터 객체를 만들어서 초기화 하는 목적의 함수 : 생성자 함수
+function Exam(){
+    this.kor = 0;
+    this.eng = 10;
+    this.math = 20;
+
+}
+
+//프로토타입 정의
+Exam.prototype.total = function(){
+    return this.kor+this.eng+this.math;
+}
+
+
+let exam1 = new Exam();
+let exam2 = new Exam();
+console.log(exam1.total === exam2.total);
