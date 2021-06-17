@@ -100,26 +100,43 @@
 
 //------Javascript Object Oriented Programming -------
 //행위 또는 처리하는 함수
-function print(){
-    console.log(this); // this: window객체
-}
+// function print(){
+//     console.log(this); // this: window객체
+// }
 
-print()
+// print()
 
 //데이터 객체를 만들어서 초기화 하는 목적의 함수 : 생성자 함수
-function Exam(){
-    this.kor = 0;
-    this.eng = 10;
-    this.math = 20;
+// function Exam(){
+//     this.kor = 0;
+//     this.eng = 10;
+//     this.math = 20;
 
-}
+//}
 
 //프로토타입 정의
-Exam.prototype.total = function(){
-    return this.kor+this.eng+this.math;
+// Exam.prototype.total = function(){
+//     return this.kor+this.eng+this.math;
+// }
+
+
+// let exam1 = new Exam();
+// let exam2 = new Exam();
+// console.log(exam1.total === exam2.total);
+
+//--------------클래스
+class Exam{
+
+    constructor(){
+        this.kor = 10;
+        this.eng = 20;
+        this.math = 30;
+    }
+
+    total(){
+        return this.kor + this.eng + this.math;
+    }
 }
 
-
-let exam1 = new Exam();
-let exam2 = new Exam();
-console.log(exam1.total === exam2.total);
+let exam = new Exam();
+console.log(typeof Exam);
