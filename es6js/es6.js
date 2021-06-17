@@ -1,3 +1,32 @@
+//--------Function Rest/Spread/Default -------
+//Rest Operator
+// function print(x,y,...restvalues){};
+
+//Spread Operator
+// function pring(x,y,z){};
+// let arr = [1,2,3];
+// print(...arr);
+
+//Default values
+// function print(x, y=10){
+//     console.log(arguments.length);
+//     console.log(`x:${x}, y:${y}`);
+// }
+
+// print(10);
+
+//arrow function
+let arr = [2,3,4,12,23,4,2,1,3,4,90];
+arr.sort(function(a,b){
+    return a - b
+});
+console.log(arr);
+
+arr.sort((a,b)=>a-b);
+console.log(arr);
+
+
+//------------------------------------
 // Collection
 //set
 // let set = new Set();
@@ -52,19 +81,19 @@
 // console.log(set.size);
 
 //-----------map
-let exam = new Map();
-exam.set("kor",10);
-exam.set("eng",20);
-exam.set("math",40);
+// let exam = new Map();
+// exam.set("kor",10);
+// exam.set("eng",20);
+// exam.set("math",40);
 
-//for-of이용해 key를 꺼내고 key통해서 값 꺼내기
-for(let k of exam.keys())
-    console.log(exam.get(k));
+// //for-of이용해 key를 꺼내고 key통해서 값 꺼내기
+// for(let k of exam.keys())
+//     console.log(exam.get(k));
 
-//for-of이용해 값을 바로 꺼내기
-for(let v of exam.values())
-    console.log(v);
+// //for-of이용해 값을 바로 꺼내기
+// for(let v of exam.values())
+//     console.log(v);
 
-//for-of이용해 key, value 모두 꺼내기
-for(let [k,v] of exam.entries())
-    console.log(`key:${k}, value:${v}`);
+// //for-of이용해 key, value 모두 꺼내기
+// for(let [k,v] of exam.entries())
+//     console.log(`key:${k}, value:${v}`);
