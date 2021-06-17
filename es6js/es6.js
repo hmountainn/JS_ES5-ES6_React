@@ -1,37 +1,53 @@
 // Collection
 //set
-let set = new Set();
-set.add(5);
-set.add(5);
-set.add(5);
-set.add(5);
-set.add(6);
+// let set = new Set();
+// set.add(5);
+// set.add(5);
+// set.add(5);
+// set.add(5);
+// set.add(6);
 
-console.log(set.size)
+// console.log(set.size)
 
-let arr = [2,2,3,8,6,4,8,4,8,4,8,5,6,4,8,4,7];
-console.log(arr.length);
+// let arr = [2,2,3,8,6,4,8,4,8,4,8,5,6,4,8,4,7];
+// console.log(arr.length);
 
-let lotto = new Set(arr);
-console.log(lotto.size);
+// let lotto = new Set(arr);
+// console.log(lotto.size);
 
-if(lotto.has(8))
-    console.log("8가지고 있다")
+// if(lotto.has(8))
+//     console.log("8가지고 있다")
 
 
 //전체를 나열하는 서비스
 // 1. foreach: 원래 지원되던 과거 방법
 // -> for-in : 키를 뽑아주는 제어구조
-lotto.forEach(function(v, k ,s){
-    console.log(`k:${k}, v:${v}`);
-})
+// lotto.forEach(function(v, k ,s){
+//     console.log(`k:${k}, v:${v}`);
+// })
 
-for(let key in set){
-    console.log(key);
-}
+// for(let key in set){
+//     console.log(key);
+// }
 
 // 2. iterator: ES6에서부터 지원하는 새로운 방법
 // -> for-of : 값을 뽑아주는 제어구조
-for(let v of set){
-    console.log(v);
-}
+// for(let v of set){
+//     console.log(v);
+// }
+
+//---------weak Set
+let ob1 = {};
+let ob2 = {};
+
+let s1 = "hello";
+let s2 = "hello";
+
+let set = new Set();
+set.add(ob1);
+set.add(ob2);
+
+ob1 = null;
+
+console.log(set.size);
+
