@@ -37,17 +37,34 @@
 // }
 
 //---------weak Set
-let ob1 = {};
-let ob2 = {};
+// let ob1 = {};
+// let ob2 = {};
 
-let s1 = "hello";
-let s2 = "hello";
+// let s1 = "hello";
+// let s2 = "hello";
 
-let set = new Set();
-set.add(ob1);
-set.add(ob2);
+// let set = new Set();
+// set.add(ob1);
+// set.add(ob2);
 
-ob1 = null;
+// ob1 = null;
 
-console.log(set.size);
+// console.log(set.size);
 
+//-----------map
+let exam = new Map();
+exam.set("kor",10);
+exam.set("eng",20);
+exam.set("math",40);
+
+//for-of이용해 key를 꺼내고 key통해서 값 꺼내기
+for(let k of exam.keys())
+    console.log(exam.get(k));
+
+//for-of이용해 값을 바로 꺼내기
+for(let v of exam.values())
+    console.log(v);
+
+//for-of이용해 key, value 모두 꺼내기
+for(let [k,v] of exam.entries())
+    console.log(`key:${k}, value:${v}`);
