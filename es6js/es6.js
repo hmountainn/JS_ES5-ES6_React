@@ -17,3 +17,11 @@ console.log(lotto.size);
 
 if(lotto.has(8))
     console.log("8가지고 있다")
+
+
+//전체를 나열하는 서비스
+// 1. foreach: 원래 지원되던 과거 방법
+// -> for-in : 키를 뽑아주는 제어구조
+lotto.forEach(function(v, k ,s){
+    console.log(`k:${k}, v:${v}`);
+})
