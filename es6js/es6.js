@@ -25,3 +25,13 @@ if(lotto.has(8))
 lotto.forEach(function(v, k ,s){
     console.log(`k:${k}, v:${v}`);
 })
+
+for(let key in set){
+    console.log(key);
+}
+
+// 2. iterator: ES6에서부터 지원하는 새로운 방법
+// -> for-of : 값을 뽑아주는 제어구조
+for(let v of set){
+    console.log(v);
+}
