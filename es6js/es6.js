@@ -125,72 +125,133 @@
 // console.log(exam1.total === exam2.total);
 
 //--------------클래스 + 은닉화
-class Exam{
-    #kor; //#->private // 은닉
-    #eng;
-    #math;
+// class Exam{
+//     #kor; //#->private // 은닉
+//     #eng;
+//     #math;
 
 
-    constructor(kor=0, eng=0, math=0){ //기본값
-        this.#kor = kor;
-        this.#eng = eng;
-        this.#math = math;
-    }
+//     constructor(kor=0, eng=0, math=0){ //기본값
+//         this.#kor = kor;
+//         this.#eng = eng;
+//         this.#math = math;
+//     }
 
-    set kor(kor){ //set
-        this.#kor = kor;
-    }
+//     set kor(kor){ //set
+//         this.#kor = kor;
+//     }
 
-    get kor(){ //get
-        return this.#kor;
-    }
+//     get kor(){ //get
+//         return this.#kor;
+//     }
 
-    total(){
-        return this.#kor + this.#eng + this.#math;
-    }
-}
+//     total(){
+//         return this.#kor + this.#eng + this.#math;
+//     }
+// }
 
-let exam = new Exam();
-//console.log(exam.#kor); // private 오류
-//console.log(exam.total()); // 60
-console.log(exam.kor);
+// let exam = new Exam();
+// //console.log(exam.#kor); // private 오류
+// //console.log(exam.total()); // 60
+// console.log(exam.kor);
 
-for(let k in exam){
-    console.log(k); // kor빼고 나옴
-}
+// for(let k in exam){
+//     console.log(k); // kor빼고 나옴
+// }
 
 //------------상속
-class NewlecExam extends Exam{
-    #com
+// class NewlecExam extends Exam{
+//     #com
 
-    //오버로드
-    constructor(kor=0, eng=0, math=0, com=0){ 
-        super(kor,eng, math);
-        this.#com = com;
+//     //오버로드
+//     constructor(kor=0, eng=0, math=0, com=0){ 
+//         super(kor,eng, math);
+//         this.#com = com;
+//     }
+
+//     //오버라이드
+//     total(){
+//         return super.total() + this.#com 
+//     }
+// }
+
+// let newexam = new NewlecExam(1,1,1,1);
+// console.log(newexam.total()); //자식(NewlecExam)의 total 사용
+
+
+// class jisan extends Exam{
+//     #jisan;
+
+//     constructor(kor=0, eng=0, math=0, jisan=0){ 
+//         super(kor,eng,math);
+//         this.#jisan = jisan;
+//     }
+
+//     total(){
+//         return super.total() + this.#jisan;
+//     }
+// }
+
+// let ji = new jisan(1,2,3,4);
+// console.log(ji.total());
+
+//------Iterator 맨땅에 구현
+class MissileContainer{
+    #missiles;
+    #index; //누적을 위한 위치 인덱스
+    //#current;
+    constructor(){
+        this.#missiles = [];
+        this.#index = 0;
+        //this.#current = 0;
     }
 
-    //오버라이드
-    total(){
-        return super.total() + this.#com 
+    add(missile){
+        this.#missiles[this.#index] = missile;
+        this.#index++;
+    }
+    
+    iterator(){
+        return new this.MissileIterator(this.#missiles, this.#index);
+    }
+
+    MissileIterator = class{
+        #current;
+        #missiles;
+        #index;
+        
+        constructor(missiles, index){
+            this.#missiles = missiles;
+            this.#current = 0;
+            this.#index = index;
+        }
+
+        next(){
+            let value = this.#missiles[this.#current];
+            let done = (this.#index == this.#current);
+            
+            this.#current++;
+
+            return {value, done};
+        }
     }
 }
 
-let newexam = new NewlecExam(1,1,1,1);
-console.log(newexam.total()); //자식(NewlecExam)의 total 사용
+let mc = new MissileContainer();
+mc.add("미사일1")
+mc.add("미사일2")
 
-
-class jisan extends Exam{
-    #jisan;
-
-    constructor(kor=0, eng=0, math=0, jisan=0){ 
-        super(kor,eng,math);
-        this.#jisan = jisan;
-    }
-
-    total(){
-        return super.total() + this.#jisan;
-    }
+let it = mc.iterator();
+//마지막값일때까지 출력
+let result = it.next();
+while (!result.done){
+    console.log(result.value); //미사일1, 미사일2
+    result = it.next();
 }
 
-let ji = new jisan(1,2,3,4);
-console.log(ji.total());
+it = mc.iterator();
+
+// 미사일 나열 -> iteration 나열
+console.log(it.next());
+console.log(it.next());
+console.log(it.next());
