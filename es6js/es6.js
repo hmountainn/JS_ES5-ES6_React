@@ -124,19 +124,73 @@
 // let exam2 = new Exam();
 // console.log(exam1.total === exam2.total);
 
-//--------------클래스
+//--------------클래스 + 은닉화
 class Exam{
+    #kor; //#->private // 은닉
+    #eng;
+    #math;
 
-    constructor(){
-        this.kor = 10;
-        this.eng = 20;
-        this.math = 30;
+
+    constructor(kor=0, eng=0, math=0){ //기본값
+        this.#kor = kor;
+        this.#eng = eng;
+        this.#math = math;
+    }
+
+    set kor(kor){ //set
+        this.#kor = kor;
+    }
+
+    get kor(){ //get
+        return this.#kor;
     }
 
     total(){
-        return this.kor + this.eng + this.math;
+        return this.#kor + this.#eng + this.#math;
     }
 }
 
 let exam = new Exam();
-console.log(typeof Exam);
+//console.log(exam.#kor); // private 오류
+//console.log(exam.total()); // 60
+console.log(exam.kor);
+
+for(let k in exam){
+    console.log(k); // kor빼고 나옴
+}
+
+//------------상속
+class NewlecExam extends Exam{
+    #com
+
+    //오버로드
+    constructor(kor=0, eng=0, math=0, com=0){ 
+        super(kor,eng, math);
+        this.#com = com;
+    }
+
+    //오버라이드
+    total(){
+        return super.total() + this.#com 
+    }
+}
+
+let newexam = new NewlecExam(1,1,1,1);
+console.log(newexam.total()); //자식(NewlecExam)의 total 사용
+
+
+class jisan extends Exam{
+    #jisan;
+
+    constructor(kor=0, eng=0, math=0, jisan=0){ 
+        super(kor,eng,math);
+        this.#jisan = jisan;
+    }
+
+    total(){
+        return super.total() + this.#jisan;
+    }
+}
+
+let ji = new jisan(1,2,3,4);
+console.log(ji.total());
