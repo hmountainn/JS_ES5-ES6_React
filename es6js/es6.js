@@ -196,9 +196,115 @@
 // console.log(ji.total());
 
 //------Iterator 맨땅에 구현
+// 1. iterator가 무엇이냐?
+// : 데이터를 순차적으로 순회할수있게 해주는 객체
+// 1-2. 그걸 왜 사용하냐?
+// : 컬렉션들이 데이터를 꺼내는 방법이 다양함 so 모든 컬렉션을 단일한 방법으로 순회하기 위해
+// 2. iterator를 개별 객체로 사용하는 이유는 뭐냐
+// :데이터를 단일하게 순회하려고 하는데 그것이 스레드에 안전하도록 하기 위해
+// class MissileContainer{
+//     #missiles;
+//     #index; //누적을 위한 위치 인덱스
+//     //#current;
+//     constructor(){
+//         this.#missiles = [];
+//         this.#index = 0;
+//         //this.#current = 0;
+//     }
+
+//     add(missile){
+//         this.#missiles[this.#index] = missile;
+//         this.#index++;
+//     }
+    
+//     [Symbol.iterator](){ //Symbol 사용
+//         return new this.MissileIterator(this.#missiles, this.#index);
+//     }
+
+//     MissileIterator = class{
+//         #current;
+//         #missiles;
+//         #index;
+        
+//         constructor(missiles, index){
+//             this.#missiles = missiles;
+//             this.#current = 0;
+//             this.#index = index;
+//         }
+
+//         next(){
+//             let value = this.#missiles[this.#current];
+//             let done = (this.#index == this.#current);
+            
+//             this.#current++;
+
+//             return {value, done};
+//         }
+//     }
+// }
+
+// let mc = new MissileContainer();
+// mc.add("미사일1")
+// mc.add("미사일2")
+
+// itterator를 직접 얻어서 사용한 순회 방법
+// let it = mc.iterator();
+// //마지막값일때까지 출력
+// let result = it.next();
+// while (!result.done){
+//     console.log(result.value); //미사일1, 미사일2
+//     result = it.next();
+// }
+
+//대안으로 새로운 제어구조 만듦 => for-of문
+// for(let v of mc) //mc가 iterator함수 가지고있어야함
+//     console.log(v);
+
+
+// it = mc.iterator();
+
+// // 미사일 나열 -> iteration 나열
+// console.log(it.next());
+// console.log(it.next());
+// console.log(it.next());
+
+
+// //------------Symbol--------------
+// let aa = "gd";
+
+// let obj = {
+//     [aa]:1,
+//     math:2
+// }
+
+// console.log(obj.gd);
+
+
+
+// let add = Symbol();
+// class Test{
+//     add(){
+//         console.log("add");
+//     }
+// }
+
+// class Test2{
+//     add(){
+//         return "hahaha"
+// ;    }
+// }
+
+// let t = new Test();
+// t.add();
+
+// let t1 = new Test2();
+// t1.add();
+
+
+// ---- Generator ---------------
 class MissileContainer{
-    #missiles;
-    #index; //누적을 위한 위치 인덱스
+    #missiles
+    #index; // 누적을 위한 위치 인덱스
     //#current;
     constructor(){
         this.#missiles = [];
@@ -209,49 +315,32 @@ class MissileContainer{
     add(missile){
         this.#missiles[this.#index] = missile;
         this.#index++;
-    }
+    }    
     
-    iterator(){
-        return new this.MissileIterator(this.#missiles, this.#index);
-    }
+    [Symbol.iterator](){
 
-    MissileIterator = class{
-        #current;
-        #missiles;
-        #index;
+        let missiles = this.#missiles;
         
-        constructor(missiles, index){
-            this.#missiles = missiles;
-            this.#current = 0;
-            this.#index = index;
-        }
+        function* iterator(){
+            for(let i=0; i<missiles.length; i++)
+                yield missiles[i];
+        };
 
-        next(){
-            let value = this.#missiles[this.#current];
-            let done = (this.#index == this.#current);
-            
-            this.#current++;
-
-            return {value, done};
-        }
+        return iterator();
     }
+    // function* iterator(){ //Generator이용해서 Iterator 생성
+    //     for(let i=0; i<100; i++)
+    //         yield i;
+    // }
 }
 
 let mc = new MissileContainer();
 mc.add("미사일1")
 mc.add("미사일2")
+mc.add("미사일3")
 
-let it = mc.iterator();
-//마지막값일때까지 출력
-let result = it.next();
-while (!result.done){
-    console.log(result.value); //미사일1, 미사일2
-    result = it.next();
-}
+let it = mc[Symbol.iterator]();
 
-it = mc.iterator();
-
-// 미사일 나열 -> iteration 나열
-console.log(it.next());
-console.log(it.next());
-console.log(it.next());
+for(let v of mc)
+    console.log(v);
+    
