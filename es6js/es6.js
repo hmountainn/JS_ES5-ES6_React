@@ -345,135 +345,153 @@
 //     console.log(v);
 
 //-------Promise-------------
-function getCountSync() { //동기
-    let result = 0;
+// function getCountSync() { //동기
+//     let result = 0;
     
-    result = 3; //로드된 값을 3으로 가정한다.
+//     result = 3; //로드된 값을 3으로 가정한다.
 
-    return result
-}
-console.log(getCountSync()); //3
+//     return result
+// }
+// console.log(getCountSync()); //3
 
 
-function getCountAsync() { //비동기
-    let result = 0;
+// function getCountAsync() { //비동기
+//     let result = 0;
     
-    //데이터가 로드된 후에 그 값을 반환하는 함수
-    // : 로드되는 시간이 3초라고 가정한다
-    setTimeout(function(){
-        result = 3; //로드된 값을 3으로 가정한다.
-    }, 3000);
+//     //데이터가 로드된 후에 그 값을 반환하는 함수
+//     // : 로드되는 시간이 3초라고 가정한다
+//     setTimeout(function(){
+//         result = 3; //로드된 값을 3으로 가정한다.
+//     }, 3000);
     
-    return result
-}
-console.log(getCountAsync()); //0
+//     return result
+// }
+// console.log(getCountAsync()); //0
 
 
-function getCountAsync2(callback) { //비동기 callback사용
-    let result = 0;
+// function getCountAsync2(callback) { //비동기 callback사용
+//     let result = 0;
     
-    //데이터가 로드된 후에 그 값을 반환하는 함수
-    // : 로드되는 시간이 3초라고 가정한다
-    setTimeout(function(){
-        result = 3; //로드된 값을 3으로 가정한다.
-        callback(result); //return
-    }, 3000);
+//     //데이터가 로드된 후에 그 값을 반환하는 함수
+//     // : 로드되는 시간이 3초라고 가정한다
+//     setTimeout(function(){
+//         result = 3; //로드된 값을 3으로 가정한다.
+//         callback(result); //return
+//     }, 3000);
     
-}
+// }
 
-getCountAsync2(function(count){
-    console.log(`callback 호출:${count}`)
-})
+// getCountAsync2(function(count){
+//     console.log(`callback 호출:${count}`)
+// })
 
 
-function getCountAsyncUsingPromise() { //비동기 Promise사용
+// function getCountAsyncUsingPromise() { //비동기 Promise사용
     
-    let promise = new Promise(function(resolve,reject){
-        //데이터가 로드된 후에 그 값을 반환하는 함수
-        // : 로드되는 시간이 3초라고 가정한다
-        setTimeout(function(){
-            result = 3; //로드된 값을 3으로 가정한다.
-            resolve(result); //return
-        }, 3000);
-    });
+//     let promise = new Promise(function(resolve,reject){
+//         //데이터가 로드된 후에 그 값을 반환하는 함수
+//         // : 로드되는 시간이 3초라고 가정한다
+//         setTimeout(function(){
+//             result = 3; //로드된 값을 3으로 가정한다.
+//             resolve(result); //return
+//         }, 3000);
+//     });
 
-    return promise;
-}
+//     return promise;
+// }
 
-let promise = getCountAsyncUsingPromise();
-promise.then(function(result){
-    console.log(`Promise 첫번째 호출 ${result}`)
-})
+// let promise = getCountAsyncUsingPromise();
+// promise.then(function(result){
+//     console.log(`Promise 첫번째 호출 ${result}`)
+// })
 
-getCountAsyncUsingPromise()
-.then(function(result){
-    console.log(`Promise 두번째 호출 ${result}`)
-})
+// getCountAsyncUsingPromise()
+// .then(function(result){
+//     console.log(`Promise 두번째 호출 ${result}`)
+// })
 
-//3 번째 방법
-async function printCount() {
-    let result = await getCountAsyncUsingPromise();
+// //3 번째 방법
+// async function printCount() {
+//     let result = await getCountAsyncUsingPromise();
 
-    console.log(`세번째 호출 ${result}`);
-}
-printCount();
+//     console.log(`세번째 호출 ${result}`);
+// }
+// printCount();
 
 
-function add(x,y) {
+// function add(x,y) {
     
-    let promise = new Promise(function(resolve,reject){
-        //데이터가 로드된 후에 그 값을 반환하는 함수
-        // : 로드되는 시간이 3초라고 가정한다
-        setTimeout(function(){
-            let result = 3+x+y; //로드된 값을 3으로 가정한다.
+//     let promise = new Promise(function(resolve,reject){
+//         //데이터가 로드된 후에 그 값을 반환하는 함수
+//         // : 로드되는 시간이 3초라고 가정한다
+//         setTimeout(function(){
+//             let result = 3+x+y; //로드된 값을 3으로 가정한다.
             
-            if(result>10){
-                reject("값이 넘 크다")
-                return;
-            }
+//             if(result>10){
+//                 reject("값이 넘 크다")
+//                 return;
+//             }
             
-            resolve(result);
+//             resolve(result);
             
-        }, 3000);
-    });
-    return promise;
-}
+//         }, 3000);
+//     });
+//     return promise;
+// }
 
-add(2,9)
-.then(function(result) {
-    console.log(`result:${result}`)
-}, function(err){
-    console.log(`err:${err}`)
-});
+// add(2,9)
+// .then(function(result) {
+//     console.log(`result:${result}`)
+// }, function(err){
+//     console.log(`err:${err}`)
+// });
 
 
-function add2() {
+// function add2() {
     
-    let promise = new Promise(function(resolve,reject){
-        //데이터가 로드된 후에 그 값을 반환하는 함수
-        // : 로드되는 시간이 3초라고 가정한다
-        setTimeout(function(){
-            //let result = 3+x+y; //로드된 값을 3으로 가정한다.
+//     let promise = new Promise(function(resolve,reject){
+//         //데이터가 로드된 후에 그 값을 반환하는 함수
+//         // : 로드되는 시간이 3초라고 가정한다
+//         setTimeout(function(){
+//             //let result = 3+x+y; //로드된 값을 3으로 가정한다.
           
-            resolve([{kor:10,eng:10},{kor:20,eng:20}]);
+//             resolve([{kor:10,eng:10},{kor:20,eng:20}]);
             
-        }, 3000);
-    });
-    return promise;
-}
+//         }, 3000);
+//     });
+//     return promise;
+// }
 
-add2()
-.then(function(list) {
-    return list[0]
-}, function(err){
-    console.log(`err:${err}`)
-})
-.then(function(exam){
-    return exam.kor;
-})
-.then(function(kor){
-    console.log(`kor:${kor}`);
-})
+// add2()
+// .then(function(list) {
+//     return list[0]
+// }, function(err){
+//     console.log(`err:${err}`)
+// })
+// .then(function(exam){
+//     return exam.kor;
+// })
+// .then(function(kor){
+//     console.log(`kor:${kor}`);
+// })
 
+//----------module
 
+//함수 import
+import aaa,{test, test2} from './module1.js';
+import bbb,{test as mtest, test2 as mtest2} from './module2.js';
+
+aaa() //test1 function
+test(); //test function
+test2(); //test2 function
+
+bbb() //mtest1 function
+mtest(); //mtest function
+mtest2(); //mtest2 function
+
+//class import
+import Exam from './exam.js';
+
+//let exam = new Exam(1,1,1);
+console.log(Exam.total());
 
