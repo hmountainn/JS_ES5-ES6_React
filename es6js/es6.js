@@ -419,8 +419,61 @@ async function printCount() {
 printCount();
 
 
+function add(x,y) {
+    
+    let promise = new Promise(function(resolve,reject){
+        //데이터가 로드된 후에 그 값을 반환하는 함수
+        // : 로드되는 시간이 3초라고 가정한다
+        setTimeout(function(){
+            let result = 3+x+y; //로드된 값을 3으로 가정한다.
+            
+            if(result>10){
+                reject("값이 넘 크다")
+                return;
+            }
+            
+            resolve(result);
+            
+        }, 3000);
+    });
+    return promise;
+}
+
+add(2,9)
+.then(function(result) {
+    console.log(`result:${result}`)
+}, function(err){
+    console.log(`err:${err}`)
+});
 
 
+function add2() {
+    
+    let promise = new Promise(function(resolve,reject){
+        //데이터가 로드된 후에 그 값을 반환하는 함수
+        // : 로드되는 시간이 3초라고 가정한다
+        setTimeout(function(){
+            //let result = 3+x+y; //로드된 값을 3으로 가정한다.
+          
+            resolve([{kor:10,eng:10},{kor:20,eng:20}]);
+            
+        }, 3000);
+    });
+    return promise;
+}
+
+add2()
+.then(function(list) {
+    return list[0]
+}, function(err){
+    console.log(`err:${err}`)
+})
+.then(function(exam){
+    return exam.kor;
+})
+.then(function(kor){
+    console.log(`kor:${kor}`);
+})
 
 
 
