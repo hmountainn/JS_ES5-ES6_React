@@ -9,11 +9,11 @@ class Photo extends React.Component{
         };
     }
 
-    widthChange(e){ //너비
-        this.setState({
-            width:e.target.value
-        })
-    }
+    // widthChange(e){ //너비
+    //     this.setState({
+    //         width:e.target.value
+    //     })
+    // }
     
     borderColorChange(e){ //경계선 색상
         this.setState({
@@ -40,7 +40,7 @@ class Photo extends React.Component{
         return <section>
                     <div>
                         <label>너비:</label>
-                        <input type="text" value={this.state.width} onChange={this.widthChange.bind(this)}/>
+                        <input type="text" value={this.state.width} onChange={(e)=>{this.setState({width:e.target.value})}}/>
                         <label>경계선 색상:</label>
                         <input type="text" value={this.state.borderColor} onChange={this.borderColorChange.bind(this)}/>
                         <label>경계선 두께:</label>
